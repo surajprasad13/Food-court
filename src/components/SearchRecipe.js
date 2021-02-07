@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSearchRecipe } from "../actions";
+import { fetchSearchRecipe } from "./../redux/actions";
 import { RecipeCard } from "./RecipeCard";
 
 class SearchRecipe extends React.Component {
@@ -40,12 +40,7 @@ class SearchRecipe extends React.Component {
       <div className="ui container">
         <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="ui big fluid icon input">
-            <input
-              value={this.state.term}
-              onChange={this.onChange}
-              type="text"
-              placeholder="Search Recipe..."
-            />
+            <input value={this.state.term} onChange={this.onChange} type="text" placeholder="Search Recipe..." />
             <i className="inverted circular search link icon" />
           </div>
         </form>

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchRandomRecipe} from "../actions";
+import { fetchRandomRecipe } from "./../redux/actions";
 import { RecipeCard } from "./RecipeCard";
 
 class RandomRecipe extends React.Component {
@@ -38,13 +38,7 @@ class RandomRecipe extends React.Component {
       function myFunc({ id, title, image, servings, readyInMinutes }) {
         return (
           <>
-            <RecipeCard
-              id={id}
-              title={title}
-              image={image}
-              servings={servings}
-              readyInMinutes={readyInMinutes}
-            />
+            <RecipeCard id={id} title={title} image={image} servings={servings} readyInMinutes={readyInMinutes} />
           </>
         );
       }
@@ -62,13 +56,10 @@ class RandomRecipe extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    randomRecipe: state.randomRecipe
+    randomRecipe: state.randomRecipe,
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchRandomRecipe }
-)(RandomRecipe);
+export default connect(mapStateToProps, { fetchRandomRecipe })(RandomRecipe);

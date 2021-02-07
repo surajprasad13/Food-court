@@ -1,11 +1,8 @@
 import React from "react";
 
 export const RecipeCard = ({ id, title, image, servings, readyInMinutes }) => {
-  const renderComponent = () => {
-    console.log(id, title);
-  };
   return (
-    <div className="card" key={id} onClick={() => renderComponent}>
+    <div className="card" key={id}>
       <div className="image">
         <img src={image} alt="avatar" />
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchJoke } from "../actions";
+import { fetchJoke } from "./../redux/actions";
 
 class RandomQuote extends React.Component {
   componentDidMount() {
@@ -25,11 +25,8 @@ class RandomQuote extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { jokes: state.jokes };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchJoke }
-)(RandomQuote);
+export default connect(mapStateToProps, { fetchJoke })(RandomQuote);

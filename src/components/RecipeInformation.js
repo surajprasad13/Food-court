@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSelectedRecipe } from "../actions";
+import { fetchSelectedRecipe } from "../redux/actions";
 
 class RecipeInformation extends React.Component {
   componentDidMount() {
     this.props.fetchSelectedRecipe(648320);
-  };
+  }
 
   renderInformation() {
     const data = this.props.selectedRecipe.data;
@@ -39,14 +39,9 @@ class RecipeInformation extends React.Component {
               <div className="extra">
                 <h3>Ingredients</h3>
                 <div className="ui horizontal list">
-                  {data.extendedIngredients.map(ing => (
+                  {data.extendedIngredients.map((ing) => (
                     <div className="item">
-                      <img
-                        src={`https://spoonacular.com/cdn/ingredients_100x100/${
-                          ing.image
-                        }`}
-                        alt="ing"
-                      />
+                      <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ing.image}`} alt="ing" />
                       <div class="content">
                         <div class="header">{ing.name}</div>
                         amount-{ing.amount} ||unit-{ing.unit}
@@ -67,11 +62,8 @@ class RecipeInformation extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return { selectedRecipe: state.selectedRecipe };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchSelectedRecipe }
-)(RecipeInformation);
+export default connect(mapStateToProps, { fetchSelectedRecipe })(RecipeInformation);
